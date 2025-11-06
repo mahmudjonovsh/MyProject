@@ -58,13 +58,14 @@ export default function SignUp() {
     
     try {
       const result = await signup({
-        first_name: formData.firstName,
-        last_name: formData.lastName,
+        username: formData.email, // Use email as username since that's what the backend expects
         email: formData.email,
         company: formData.company,
-        phone: formData.phone,
+        phone_number: formData.phone,
         password: formData.password,
-        subscribe_newsletter: formData.subscribeNewsletter,
+        confirm_password: formData.confirmPassword,
+        plan_type: 'free', // Default to free plan
+        newsletter_subscribed: formData.subscribeNewsletter,
       });
 
       if (!result.success) {

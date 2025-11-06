@@ -66,7 +66,8 @@ export const AuthProvider = ({ children }) => {
       }
 
       const data = await response.json();
-      localStorage.setItem('token', data.token);
+      localStorage.setItem('token', data.tokens.access);
+      localStorage.setItem('refresh_token', data.tokens.refresh);
       setUser(data.user);
       
       // Redirect based on signup status

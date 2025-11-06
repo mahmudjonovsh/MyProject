@@ -41,7 +41,8 @@ def login_view(request):
         
         try:
             user = User.objects.get(email=email)
-            user = authenticate(username=user.username, password=password)
+            # Since we use email as USERNAME_FIELD, authenticate with email
+            user = authenticate(username=email, password=password)
             if user:
                 tokens = get_tokens_for_user(user)
                 user_data = UserSerializer(user).data
