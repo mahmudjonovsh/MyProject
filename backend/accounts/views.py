@@ -60,7 +60,9 @@ def login_view(request):
 @api_view(['POST'])
 @permission_classes([IsAuthenticated])
 def verify_token_view(request):
-    return Response({'message': 'Token is valid'}, status=status.HTTP_200_OK)
+    user = request.user
+    serializer = UserSerializer(user)
+    return Response({'message': 'Token is valid', 'user': serializer.data}, status=status.HTTP_200_OK)
 
 @api_view(['GET'])
 @permission_classes([IsAuthenticated])

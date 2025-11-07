@@ -5,6 +5,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useAuth } from '../contexts/AuthContext';
 import { useRouter } from 'next/navigation';
+import { FaRocket, FaEye, FaEyeSlash, FaSearch, FaGithub } from 'react-icons/fa';
 import styles from './signup.module.scss';
 
 export default function SignUp() {
@@ -125,7 +126,7 @@ export default function SignUp() {
         <div className={styles.signupCard}>
           {/* Header */}
           <div className={styles.header}>
-            <div className={styles.logo}>🚀</div>
+            <div className={styles.logo}><FaRocket /></div>
             <h1 className={styles.title}>Create Your Account</h1>
             <p className={styles.subtitle}>Start your journey with us today</p>
           </div>
@@ -244,7 +245,7 @@ export default function SignUp() {
                     className={styles.passwordToggle}
                     onClick={() => setShowPassword(!showPassword)}
                   >
-                    {showPassword ? '👁️' : '👁️‍🗨️'}
+                    {showPassword ? <FaEye /> : <FaEyeSlash />}
                   </button>
                 </div>
               </div>
@@ -266,7 +267,7 @@ export default function SignUp() {
                     className={styles.passwordToggle}
                     onClick={() => setShowConfirmPassword(!showConfirmPassword)}
                   >
-                    {showConfirmPassword ? '👁️' : '👁️‍🗨️'}
+                    {showConfirmPassword ? <FaEye /> : <FaEyeSlash />}
                   </button>
                 </div>
               </div>
@@ -347,7 +348,7 @@ export default function SignUp() {
               onClick={() => socialSignUp('google')}
               className={`${styles.socialButton} ${styles.googleButton}`}
             >
-              <span className={styles.socialIcon}>🔍</span>
+              <span className={styles.socialIcon}><FaSearch /></span>
               Continue with Google
             </button>
             <button
@@ -355,7 +356,7 @@ export default function SignUp() {
               onClick={() => socialSignUp('github')}
               className={`${styles.socialButton} ${styles.githubButton}`}
             >
-              <span className={styles.socialIcon}>🐙</span>
+              <span className={styles.socialIcon}><FaGithub /></span>
               Continue with GitHub
             </button>
           </div>

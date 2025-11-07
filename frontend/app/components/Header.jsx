@@ -1,7 +1,12 @@
+'use client';
+
 import Link from 'next/link';
 import styles from './Header.module.scss';
+import { useAuth } from '../contexts/AuthContext';
 
 export default function Header() {
+  const { user, logout } = useAuth();
+
   return (
     <header className={styles.header}>
       <div className={styles.container}>
@@ -27,8 +32,14 @@ export default function Header() {
           </ul>
         </nav>
         <div className={styles.actions}>
-          <Link href="/login" className={styles.loginButton}>Login</Link>
-          <Link href="/signup" className={styles.signupButton}>Sign Up</Link>
+          {user ? (
+            <button onClick={logout} className={styles.logoutButton}>Logout</button>
+          ) : (
+            <>
+              <Link href="/login" className={styles.loginButton}>Login</Link>
+              <Link href="/signup" className={styles.signupButton}>Sign Up</Link>
+            </>
+          )}
         </div>
       </div>
     </header>

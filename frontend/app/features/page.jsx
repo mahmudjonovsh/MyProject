@@ -3,13 +3,14 @@ import Image from 'next/image';
 import Link from 'next/link';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import { FaChartBar, FaUsers, FaShieldAlt, FaCog, FaBell, FaLink, FaBolt, FaChartLine, FaGlobe, FaComments, FaBook, FaGraduationCap } from 'react-icons/fa';
 import styles from './features.module.scss';
 
 const mainFeatures = [
   {
     title: 'Advanced Analytics',
     description: 'Get deep insights into your business performance with our powerful analytics dashboard. Track metrics, identify trends, and make data-driven decisions.',
-    icon: '📊',
+    icon: <FaChartBar />,
     image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=500&h=300&fit=crop',
     details: [
       'Real-time data visualization',
@@ -21,7 +22,7 @@ const mainFeatures = [
   {
     title: 'Team Collaboration',
     description: 'Enhance team productivity with our collaboration tools. Share files, communicate in real-time, and manage projects seamlessly.',
-    icon: '👥',
+    icon: <FaUsers />,
     image: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=500&h=300&fit=crop',
     details: [
       'Real-time messaging',
@@ -33,7 +34,7 @@ const mainFeatures = [
   {
     title: 'Security & Compliance',
     description: 'Enterprise-grade security to protect your data and ensure compliance with industry standards and regulations.',
-    icon: '🔒',
+    icon: <FaShieldAlt />,
     image: 'https://images.unsplash.com/photo-1563206767-5b18f218e8de?w=500&h=300&fit=crop',
     details: [
       'End-to-end encryption',
@@ -51,17 +52,17 @@ const additionalFeatures = [
       {
         title: 'Workflow Automation',
         description: 'Automate repetitive tasks and streamline your processes',
-        icon: '⚙️'
+        icon: <FaCog />
       },
       {
         title: 'Smart Notifications',
         description: 'Intelligent alerts based on your preferences and behavior',
-        icon: '🔔'
+        icon: <FaBell />
       },
       {
         title: 'Integration Hub',
         description: 'Connect with 1000+ third-party applications',
-        icon: '🔗'
+        icon: <FaLink />
       }
     ]
   },
@@ -71,17 +72,17 @@ const additionalFeatures = [
       {
         title: 'Lightning Fast',
         description: 'Optimized for speed with 99.9% uptime guarantee',
-        icon: '⚡'
+        icon: <FaBolt />
       },
       {
         title: 'Scalable Infrastructure',
         description: 'Grow without limits with our cloud-native architecture',
-        icon: '📈'
+        icon: <FaChartLine />
       },
       {
         title: 'Global CDN',
         description: 'Fast loading times anywhere in the world',
-        icon: '🌍'
+        icon: <FaGlobe />
       }
     ]
   },
@@ -91,17 +92,17 @@ const additionalFeatures = [
       {
         title: '24/7 Support',
         description: 'Round-the-clock assistance from our expert team',
-        icon: '💬'
+        icon: <FaComments />
       },
       {
         title: 'Knowledge Base',
         description: 'Comprehensive documentation and tutorials',
-        icon: '📚'
+        icon: <FaBook />
       },
       {
         title: 'Training Programs',
         description: 'Onboarding and training for your team',
-        icon: '🎓'
+        icon: <FaGraduationCap />
       }
     ]
   }

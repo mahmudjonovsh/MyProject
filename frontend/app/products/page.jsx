@@ -3,6 +3,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import { FaCloud, FaUsers, FaChartBar, FaShieldAlt } from 'react-icons/fa';
 import styles from './products.module.scss';
 
 const products = [
@@ -39,25 +40,25 @@ const additionalFeatures = [
   {
     title: 'Cloud Storage',
     description: 'Secure and scalable cloud storage solutions',
-    icon: '☁️',
+    icon: <FaCloud />,
     price: 'Starting at $9/month'
   },
   {
     title: 'Collaboration Tools',
     description: 'Advanced team collaboration and communication',
-    icon: '👥',
+    icon: <FaUsers />,
     price: 'Starting at $15/month'
   },
   {
     title: 'Analytics Dashboard',
     description: 'Comprehensive analytics and reporting',
-    icon: '📊',
+    icon: <FaChartBar />,
     price: 'Starting at $25/month'
   },
   {
     title: 'Security Suite',
     description: 'Enterprise-grade security features',
-    icon: '🔒',
+    icon: <FaShieldAlt />,
     price: 'Starting at $35/month'
   }
 ];

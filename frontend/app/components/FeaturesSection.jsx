@@ -1,29 +1,30 @@
 import styles from './FeaturesSection.module.scss';
+import { FaBolt, FaShieldAlt, FaLink, FaHeadphones } from 'react-icons/fa';
 
 const features = [
   {
     id: 1,
     title: 'Fast Performance',
     description: 'Lightning-fast performance optimized for the best user experience',
-    icon: '⚡'
+    icon: <FaBolt />
   },
   {
     id: 2,
     title: 'Secure & Reliable',
     description: 'Enterprise-grade security to keep your data safe and protected',
-    icon: '🔒'
+    icon: <FaShieldAlt />
   },
   {
     id: 3,
     title: 'Easy Integration',
     description: 'Seamlessly integrate with your existing tools and workflows',
-    icon: '🔗'
+    icon: <FaLink />
   },
   {
     id: 4,
     title: '24/7 Support',
     description: 'Round-the-clock support from our dedicated team of experts',
-    icon: '🎧'
+    icon: <FaHeadphones />
   }
 ];
 

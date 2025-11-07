@@ -1,13 +1,6 @@
-const API_BASE_URL = 'http://localhost:8000/api';
+import { apiFetch } from './api';
 
-// Helper function to get auth headers
-const getAuthHeaders = () => {
-  const token = localStorage.getItem('token');
-  return {
-    'Content-Type': 'application/json',
-    'Authorization': token ? `Bearer ${token}` : '',
-  };
-};
+const API_BASE_URL = 'http://localhost:8000/api';
 
 // Sales API service
 export const salesAPI = {
@@ -20,9 +13,11 @@ export const salesAPI = {
       
       const url = `${API_BASE_URL}/sales/${queryParams.toString() ? '?' + queryParams.toString() : ''}`;
       
-      const response = await fetch(url, {
+      const response = await apiFetch(url, {
         method: 'GET',
-        headers: getAuthHeaders(),
+        headers: {
+          'Content-Type': 'application/json',
+        },
       });
       
       if (!response.ok) {
@@ -39,9 +34,11 @@ export const salesAPI = {
   // Get a single sale by ID
   getSale: async (id) => {
     try {
-      const response = await fetch(`${API_BASE_URL}/sales/${id}/`, {
+      const response = await apiFetch(`${API_BASE_URL}/sales/${id}/`, {
         method: 'GET',
-        headers: getAuthHeaders(),
+        headers: {
+          'Content-Type': 'application/json',
+        },
       });
       
       if (!response.ok) {
@@ -58,9 +55,11 @@ export const salesAPI = {
   // Create a new sale
   createSale: async (saleData) => {
     try {
-      const response = await fetch(`${API_BASE_URL}/sales/create/`, {
+      const response = await apiFetch(`${API_BASE_URL}/sales/create/`, {
         method: 'POST',
-        headers: getAuthHeaders(),
+        headers: {
+          'Content-Type': 'application/json',
+        },
         body: JSON.stringify(saleData),
       });
       
@@ -79,9 +78,11 @@ export const salesAPI = {
   // Update an existing sale
   updateSale: async (id, saleData) => {
     try {
-      const response = await fetch(`${API_BASE_URL}/sales/${id}/update/`, {
+      const response = await apiFetch(`${API_BASE_URL}/sales/${id}/update/`, {
         method: 'PATCH',
-        headers: getAuthHeaders(),
+        headers: {
+          'Content-Type': 'application/json',
+        },
         body: JSON.stringify(saleData),
       });
       
@@ -100,9 +101,11 @@ export const salesAPI = {
   // Delete a sale
   deleteSale: async (id) => {
     try {
-      const response = await fetch(`${API_BASE_URL}/sales/${id}/delete/`, {
+      const response = await apiFetch(`${API_BASE_URL}/sales/${id}/delete/`, {
         method: 'DELETE',
-        headers: getAuthHeaders(),
+        headers: {
+          'Content-Type': 'application/json',
+        },
       });
       
       if (!response.ok) {
@@ -119,9 +122,11 @@ export const salesAPI = {
   // Get sales statistics
   getSalesStatistics: async () => {
     try {
-      const response = await fetch(`${API_BASE_URL}/sales/statistics/`, {
+      const response = await apiFetch(`${API_BASE_URL}/sales/statistics/`, {
         method: 'GET',
-        headers: getAuthHeaders(),
+        headers: {
+          'Content-Type': 'application/json',
+        },
       });
       
       if (!response.ok) {

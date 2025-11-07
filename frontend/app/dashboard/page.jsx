@@ -9,6 +9,7 @@ import SalesForm from '../components/SalesForm';
 import SaleDetails from '../components/SaleDetails';
 import salesAPI from '../services/salesAPI';
 import styles from './dashboard.module.scss';
+import { FaHome, FaChartBar, FaList, FaFileAlt, FaPlus } from 'react-icons/fa';
 
 export default function Dashboard() {
   const { user, loading } = useAuth();
@@ -114,7 +115,8 @@ export default function Dashboard() {
     }
   }, [user, loading, router]);
 
-  if (loading) {
+  // Show loading state during auth check
+  if (loading || !user) {
     return (
       <div className={styles.loadingContainer}>
         <div className={styles.loadingSpinner}></div>
@@ -134,6 +136,12 @@ export default function Dashboard() {
         <div className={styles.headerContent}>
           <h1 className={styles.dashboardTitle}>Sales Dashboard</h1>
           <div className={styles.userInfo}>
+            <button 
+              onClick={() => router.push('/')}
+              className={styles.homeButton}
+            >
+              <FaHome /> Home
+            </button>
             <span className={styles.userName}>Welcome, {user.email}</span>
             <button 
               onClick={() => router.push('/logout')}
@@ -151,13 +159,13 @@ export default function Dashboard() {
           className={`${styles.navTab} ${activeTab === 'statistics' ? styles.active : ''}`}
           onClick={() => setActiveTab('statistics')}
         >
-          📊 Statistics
+          <FaChartBar /> Statistics
         </button>
         <button 
             className={`${styles.tabButton} ${activeTab === 'list' ? styles.active : ''}`}
             onClick={() => setActiveTab('list')}
           >
-            📋 Sales List {selectedSales.length > 0 && `(${selectedSales.length})`}
+            <FaList /> Sales List {selectedSales.length > 0 && `(${selectedSales.length})`}
           </button>
           
           {selectedSale && (
@@ -165,14 +173,14 @@ export default function Dashboard() {
               className={`${styles.tabButton} ${activeTab === 'details' ? styles.active : ''}`}
               onClick={() => setActiveTab('details')}
             >
-              📄 Sale Details
+              <FaFileAlt /> Sale Details
             </button>
           )}
         <button
           className={`${styles.navTab} ${activeTab === 'create' ? styles.active : ''}`}
           onClick={() => setActiveTab('create')}
         >
-          ➕ Create Sale
+          <FaPlus /> Create Sale
         </button>
       </nav>
 

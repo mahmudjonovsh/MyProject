@@ -5,10 +5,11 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useAuth } from '../contexts/AuthContext';
 import { useRouter } from 'next/navigation';
+import { FaRocket, FaEnvelope, FaLock, FaEye, FaEyeSlash, FaSearch, FaGithub } from 'react-icons/fa';
 import styles from './login.module.scss';
 
 export default function Login() {
-  const { login, justSignedUp, setJustSignedUp } = useAuth();
+  const { login, justSignedUp, setJustSignedUp, user, loading } = useAuth();
   const router = useRouter();
   const [formData, setFormData] = useState({
     email: '',
@@ -28,6 +29,13 @@ export default function Login() {
       setJustSignedUp(false);
     }
   }, [justSignedUp, setJustSignedUp]);
+
+  // Redirect to dashboard if user is already logged in
+  useEffect(() => {
+    if (!loading && user) {
+      router.push('/dashboard');
+    }
+  }, [user, loading, router]);
 
   const handleInputChange = (e) => {
     const { name, value, type, checked } = e.target;
@@ -85,7 +93,7 @@ export default function Login() {
         <div className={styles.loginCard}>
           {/* Logo/Brand */}
           <div className={styles.brandSection}>
-            <div className={styles.logo}>🚀</div>
+            <div className={styles.logo}><FaRocket /></div>
             <h1 className={styles.brandTitle}>Welcome Back</h1>
             <p className={styles.brandSubtitle}>Sign in to your account to continue</p>
           </div>
@@ -107,7 +115,7 @@ export default function Login() {
             <div className={styles.formGroup}>
               <label htmlFor="email" className={styles.formLabel}>Email Address</label>
               <div className={styles.inputContainer}>
-                <span className={styles.inputIcon}>📧</span>
+                <span className={styles.inputIcon}><FaEnvelope /></span>
                 <input
                   type="email"
                   id="email"
@@ -124,7 +132,7 @@ export default function Login() {
             <div className={styles.formGroup}>
               <label htmlFor="password" className={styles.formLabel}>Password</label>
               <div className={styles.inputContainer}>
-                <span className={styles.inputIcon}>🔒</span>
+                <span className={styles.inputIcon}><FaLock /></span>
                 <input
                   type={showPassword ? 'text' : 'password'}
                   id="password"
@@ -140,7 +148,7 @@ export default function Login() {
                   className={styles.passwordToggle}
                   onClick={() => setShowPassword(!showPassword)}
                 >
-                  {showPassword ? '👁️' : '👁️‍🗨️'}
+                  {showPassword ? <FaEyeSlash /> : <FaEye />}
                 </button>
               </div>
             </div>
@@ -182,7 +190,7 @@ export default function Login() {
               onClick={() => socialLogin('google')}
               className={`${styles.socialButton} ${styles.googleButton}`}
             >
-              <span className={styles.socialIcon}>🔍</span>
+              <span className={styles.socialIcon}><FaSearch /></span>
               Continue with Google
             </button>
             <button
@@ -190,7 +198,7 @@ export default function Login() {
               onClick={() => socialLogin('github')}
               className={`${styles.socialButton} ${styles.githubButton}`}
             >
-              <span className={styles.socialIcon}>🐙</span>
+              <span className={styles.socialIcon}><FaGithub /></span>
               Continue with GitHub
             </button>
           </div>

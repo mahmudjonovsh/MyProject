@@ -5,6 +5,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import { FaMapMarkerAlt, FaPhone, FaEnvelope, FaClock } from 'react-icons/fa';
 import styles from './contact.module.scss';
 
 export default function Contact() {
@@ -47,25 +48,25 @@ export default function Contact() {
 
   const contactInfo = [
     {
-      icon: '📍',
+      icon: <FaMapMarkerAlt />,
       title: 'Office Address',
       content: '123 Business Street, Suite 100\nNew York, NY 10001',
       image: 'https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=400&h=200&fit=crop'
     },
     {
-      icon: '📞',
+      icon: <FaPhone />,
       title: 'Phone Numbers',
       content: 'Sales: +1 (555) 123-4567\nSupport: +1 (555) 987-6543',
       image: 'https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?w=400&h=200&fit=crop'
     },
     {
-      icon: '✉️',
+      icon: <FaEnvelope />,
       title: 'Email Addresses',
       content: 'sales@company.com\nsupport@company.com',
       image: 'https://images.unsplash.com/photo-1596524430615-b46475ddff6e?w=400&h=200&fit=crop'
     },
     {
-      icon: '🕐',
+      icon: <FaClock />,
       title: 'Business Hours',
       content: 'Monday - Friday: 9:00 AM - 6:00 PM\nSaturday: 10:00 AM - 4:00 PM',
       image: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=400&h=200&fit=crop'
