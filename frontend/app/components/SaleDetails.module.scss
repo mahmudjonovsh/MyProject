@@ -1,0 +1,262 @@
+/* SaleDetails Modal Styles */
+
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  padding: 20px;
+}
+
+.modalContent {
+  background: white;
+  border-radius: 12px;
+  width: 100%;
+  max-width: 600px;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.modalHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px 24px 16px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.modalHeader h2 {
+  margin: 0;
+  color: #1f2937;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.closeButton {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: #6b7280;
+  padding: 4px;
+  border-radius: 4px;
+  transition: all 0.2s;
+}
+
+.closeButton:hover {
+  background-color: #f3f4f6;
+  color: #374151;
+}
+
+.saleDetails {
+  padding: 24px;
+}
+
+.detailSection {
+  margin-bottom: 24px;
+}
+
+.detailSection:last-child {
+  margin-bottom: 0;
+}
+
+.detailSection h3 {
+  margin: 0 0 16px 0;
+  color: #374151;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border-bottom: 2px solid #f3f4f6;
+  padding-bottom: 8px;
+}
+
+.detailRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  border-bottom: 1px solid #f9fafb;
+}
+
+.detailRow:last-child {
+  border-bottom: none;
+}
+
+.detailLabel {
+  font-weight: 500;
+  color: #6b7280;
+  min-width: 100px;
+}
+
+.detailValue {
+  color: #1f2937;
+  text-align: right;
+  flex: 1;
+  margin-left: 16px;
+}
+
+.statusBadge {
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  text-transform: capitalize;
+}
+
+.statusPending {
+  background-color: #fef3c7;
+  color: #92400e;
+}
+
+.statusCompleted {
+  background-color: #d1fae5;
+  color: #065f46;
+}
+
+.statusCancelled {
+  background-color: #fee2e2;
+  color: #991b1b;
+}
+
+.statusDefault {
+  background-color: #f3f4f6;
+  color: #374151;
+}
+
+.modalActions {
+  padding: 24px;
+  border-top: 1px solid #e5e7eb;
+  background-color: #f9fafb;
+  border-radius: 0 0 12px 12px;
+}
+
+.statusActions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.actionLabel {
+  font-weight: 500;
+  color: #374151;
+  margin-right: 8px;
+}
+
+.statusButton {
+  padding: 6px 16px;
+  border: 1px solid #d1d5db;
+  background: white;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.875rem;
+  transition: all 0.2s;
+}
+
+.statusButton:hover:not(:disabled) {
+  background-color: #f3f4f6;
+  border-color: #9ca3af;
+}
+
+.statusButton.active {
+  background-color: #3b82f6;
+  color: white;
+  border-color: #3b82f6;
+}
+
+.statusButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.mainActions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.editButton, .deleteButton, .cancelButton {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+
+.editButton {
+  background-color: #3b82f6;
+  color: white;
+}
+
+.editButton:hover {
+  background-color: #2563eb;
+}
+
+.deleteButton {
+  background-color: #ef4444;
+  color: white;
+}
+
+.deleteButton:hover {
+  background-color: #dc2626;
+}
+
+.cancelButton {
+  background-color: #6b7280;
+  color: white;
+  margin-left: auto;
+}
+
+.cancelButton:hover {
+  background-color: #4b5563;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .modalContent {
+    margin: 10px;
+    max-height: 95vh;
+  }
+  
+  .modalHeader {
+    padding: 16px;
+  }
+  
+  .saleDetails {
+    padding: 16px;
+  }
+  
+  .detailRow {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+  
+  .detailValue {
+    text-align: left;
+    margin-left: 0;
+  }
+  
+  .statusActions {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .mainActions {
+    flex-direction: column;
+  }
+  
+  .cancelButton {
+    margin-left: 0;
+    margin-top: 8px;
+  }
+}

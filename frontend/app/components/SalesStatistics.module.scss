@@ -1,0 +1,223 @@
+.statisticsContainer {
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.statisticsTitle {
+  font-size: 28px;
+  font-weight: 600;
+  color: #212529;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  margin-bottom: 40px;
+}
+
+.statCard {
+  background: white;
+  border-radius: 12px;
+  padding: 25px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  }
+}
+
+.statIcon {
+  font-size: 40px;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.totalSales .statIcon {
+  background: #e3f2fd;
+  color: #1976d2;
+}
+
+.totalRevenue .statIcon {
+  background: #e8f5e8;
+  color: #388e3c;
+}
+
+.pendingSales .statIcon {
+  background: #fff8e1;
+  color: #f57c00;
+}
+
+.completedSales .statIcon {
+  background: #e8f5e8;
+  color: #388e3c;
+}
+
+.cancelledSales .statIcon {
+  background: #ffebee;
+  color: #d32f2f;
+}
+
+.avgSaleValue .statIcon {
+  background: #f3e5f5;
+  color: #7b1fa2;
+}
+
+.statContent {
+  flex: 1;
+}
+
+.statValue {
+  font-size: 32px;
+  font-weight: 700;
+  color: #212529;
+  margin: 0 0 5px 0;
+}
+
+.statLabel {
+  font-size: 14px;
+  color: #6c757d;
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.statusBreakdown {
+  background: white;
+  border-radius: 12px;
+  padding: 30px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+.breakdownTitle {
+  font-size: 20px;
+  font-weight: 600;
+  color: #212529;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.breakdownChart {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.chartBar {
+  position: relative;
+  background: #f8f9fa;
+  border-radius: 8px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  padding: 0 15px;
+  overflow: hidden;
+}
+
+.chartFill {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  transition: width 0.5s ease;
+  opacity: 0.8;
+}
+
+.chartLabel {
+  position: relative;
+  z-index: 2;
+  font-size: 14px;
+  font-weight: 500;
+  color: #495057;
+}
+
+.loadingContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.loadingSpinner {
+  width: 50px;
+  height: 50px;
+  border: 5px solid #f3f3f3;
+  border-top: 5px solid #007bff;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 20px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.errorContainer {
+  text-align: center;
+  padding: 40px 20px;
+  color: #dc3545;
+}
+
+// Responsive Design
+@media (max-width: 768px) {
+  .statisticsContainer {
+    padding: 15px;
+  }
+
+  .statisticsTitle {
+    font-size: 24px;
+  }
+
+  .statsGrid {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .statCard {
+    padding: 20px;
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .statIcon {
+    margin-bottom: 10px;
+  }
+
+  .statValue {
+    font-size: 28px;
+  }
+
+  .statusBreakdown {
+    padding: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .statValue {
+    font-size: 24px;
+  }
+
+  .chartBar {
+    padding: 0 10px;
+  }
+
+  .chartLabel {
+    font-size: 12px;
+  }
+}
